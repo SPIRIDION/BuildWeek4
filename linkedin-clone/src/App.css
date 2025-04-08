@@ -1,0 +1,13 @@
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 15px;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  
+  .main-content {
+    background-color: #ffffff;
+    padding: 15px;
+    min-height: 600px;
+  }
+  
