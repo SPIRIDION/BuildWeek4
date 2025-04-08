@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Spinner, Card } from 'react-bootstrap';
+import ProfileCard from './ProfileCard';
 
 export default function ProfileDetailComponent() {
   const { id } = useParams(); // Ottieni l'ID dell'utente dal parametro dell'URL
@@ -37,30 +37,8 @@ export default function ProfileDetailComponent() {
   }, [id]);
 
   return (
-    <Container>
-      <h2>Dettagli Utente</h2>
-      {loading ? (
-        <div className="d-flex justify-content-center">
-          <Spinner animation="border" variant="primary" />
-        </div>
-      ) : error ? (
-        <div className="text-center">
-          <h4>Errore: {error}</h4>
-        </div>
-      ) : (
-        profile && (
-          <Card>
-            <Card.Body>
-              <Card.Title>{profile.name} {profile.surname}</Card.Title>
-              <Card.Text>
-                <strong>Lavoro:</strong> {profile.job} <br />
-                <strong>Azienda:</strong> {profile.company} <br />
-        
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        )
-      )}
-    </Container>
+    <>
+      {profile && <ProfileCard user={profile}/>}
+    </>
   );
 }
