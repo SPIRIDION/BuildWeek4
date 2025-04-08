@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
+import EsperienzeComponent from "./EsperienzeComponent"
+
 
 export default function ProfileDetailComponent() {
   const { id } = useParams(); // Ottieni l'ID dell'utente dal parametro dell'URL
@@ -38,7 +40,13 @@ export default function ProfileDetailComponent() {
 
   return (
     <>
-      {profile && <ProfileCard user={profile}/>}
+      {profile && (
+      <>
+        <ProfileCard user={profile} />
+        <EsperienzeComponent userId={id} />
+      </>
+      )}
+
     </>
   );
 }
