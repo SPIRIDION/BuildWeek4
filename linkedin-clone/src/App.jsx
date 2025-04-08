@@ -1,11 +1,12 @@
 import './App.css'
+import ProfileCard from './assets/components/ProfileCard'
 
 function App() {
-console.log(import.meta.env.VITE_APIURL + '/me' )
+
 
   return (
     <>
-      
+      <ProfileCard />
     </>
   )
 }
