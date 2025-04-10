@@ -1,0 +1,19 @@
+@media screen and (max-width: 768px) {
+    .profile-card {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .profile-card-body {
+        padding-left: 50px;
+        margin-top: 30px;
+    }
+    
+}
+
+@media screen and (min-width: 768px) {
+    .profile-card-body {
+        padding-left: 140px;
+        padding-top: 60px;
+    }
+    
+}
