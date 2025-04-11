@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
 import EsperienzeComponent from "./EsperienzeComponent"
 
 
 export default function ProfileDetailComponent() {
-  const { id } = useParams(); // Ottieni l'ID dell'utente dal parametro dell'URL
+
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,12 +12,13 @@ export default function ProfileDetailComponent() {
   const fetchProfileDetails = async () => {
     setError(null);
     try {
-      const response = await fetch(`${import.meta.env.VITE_APIURL }/${me}`, {
+      const response = await fetch(`${import.meta.env.VITE_APIURL }/me`, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_KEY}`,
         },
       });
+    
 
       if (!response.ok) {
         setError(`Errore nella richiesta: ${response.statusText} (${response.status})`);
@@ -26,6 +26,7 @@ export default function ProfileDetailComponent() {
       }
 
       const data = await response.json();
+      console.log('Dati ricevuti:', data);
       setProfile(data);
     } catch (error) {
       setError(`Si è verificato un errore: ${error.message}`);
@@ -36,14 +37,14 @@ export default function ProfileDetailComponent() {
 
   useEffect(() => {
     fetchProfileDetails();
-  }, [id]);
+  }, []);
 
   return (
     <>
       {profile && (
       <>
         <ProfileCard user={profile} />
-        <EsperienzeComponent userId={id} />
+        <EsperienzeComponent userId={profile._id} />
       </>
       )}
 
