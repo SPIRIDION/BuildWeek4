@@ -41,6 +41,7 @@ export default function ProfileListComponent() {
     <Container fluid>
       <Row>
         <Col xs={8} md={9}>
+        
           <div className="main-content">
             <h2>Contenuti Principali</h2>
             <p>Questa è la sezione principale della tua applicazione.</p>

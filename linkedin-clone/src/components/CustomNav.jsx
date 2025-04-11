@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar, InputGroup, Button, Form } from 'react-bootstrap'
 
+
 const CustomNav = () => {
 
   return (
@@ -25,7 +26,7 @@ const CustomNav = () => {
               <Nav.Link href="#link">Rete</Nav.Link>
               <Nav.Link href="#home">Lavoro</Nav.Link>
               <Nav.Link href="#link">Messaggistica</Nav.Link>
-              <Nav.Link href="#home">Tu</Nav.Link>
+              <Nav.Link href="#tu">Tu</Nav.Link>
               <Nav.Link href="#link">Per le aziende</Nav.Link>
               <Nav.Link href="#link">Pubblicizza</Nav.Link>
             </Nav>
