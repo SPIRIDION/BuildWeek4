@@ -6,6 +6,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import ProfileDetailComponent from './components/ProfileDetailComponent'
 import HomePageComponent from './components/HomePageComponent'
+import MyProfileComponent from './components/MyEsperienzeComponent'
 
 
 
@@ -16,11 +17,14 @@ function App() {
   return (
     <>
 
-      <CustomNav />
+      
       <Router>
+        <CustomNav />
         <Routes>
+          
           <Route path="/" element={<ProfileListComponent />} />
           <Route path="/profile/:id" element={<ProfileDetailComponent />} />
+          <Route path="/tu" element={<MyProfileComponent />} />
           
         </Routes>
       </Router>
