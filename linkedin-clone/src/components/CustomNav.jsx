@@ -1,7 +1,9 @@
 import { Container, Nav, Navbar, InputGroup, Button, Form } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+
 
 const CustomNav = () => {
-
+const Navigate=useNavigate()
   return (
 
     <>
@@ -21,11 +23,11 @@ const CustomNav = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link onClick={() => Navigate('Home') }>Home</Nav.Link>
               <Nav.Link href="#link">Rete</Nav.Link>
               <Nav.Link href="#home">Lavoro</Nav.Link>
               <Nav.Link href="#link">Messaggistica</Nav.Link>
-              <Nav.Link href="#home">Tu</Nav.Link>
+              <Nav.Link onClick={() => Navigate('/tu') }>Tu</Nav.Link>
               <Nav.Link href="#link">Per le aziende</Nav.Link>
               <Nav.Link href="#link">Pubblicizza</Nav.Link>
             </Nav>
