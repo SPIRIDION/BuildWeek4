@@ -6,7 +6,7 @@ import ProfileListComponent from "./ProfileListComponent"
 
 export default function HomePageComponent() {
   return (
-    <Container fluid>
+    <Container className="mt-5">
       <Row>
         {/* Colonna sinistra: il tuo profilo con esperienze */}
         <Col xs={12} md={8}>

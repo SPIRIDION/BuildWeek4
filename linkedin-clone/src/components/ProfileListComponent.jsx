@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ProfileCard from './ProfileCard';
-import MyProfileComponent from './MyProfileComponent';
 
 export default function ProfileListComponent() {
   const [profiles, setProfiles] = useState([]);
