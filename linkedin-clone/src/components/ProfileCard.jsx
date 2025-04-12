@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Image, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/ProfileCard.css"; // Assicurati di avere questo file CSS per gli stili personalizzati
+import "../styles/ProfileCard.css";
 
 const ProfileCard = ({user}) => {
     
