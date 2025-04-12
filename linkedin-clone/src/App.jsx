@@ -22,10 +22,10 @@ function App() {
         <CustomNav />
         <Routes>
           
-          <Route path="/" element={<ProfileListComponent />} />
+          <Route path="/" element={<HomePageComponent />} />
           <Route path="/profile/:id" element={<ProfileDetailComponent />} />
           <Route path="/tu" element={<MyProfileComponent />} />
-          <Route path="/home" element={<ProfileListComponent/>} />
+          <Route path="/home" element={<HomePageComponent/>} />
           
         </Routes>
       </Router>

@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
 import MyProfileComponent from './MyProfileComponente';
+
 export default function ProfileListComponent() {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,16 +43,7 @@ export default function ProfileListComponent() {
   return (
     <Container fluid>
       <Row>
-        <Col xs={8} md={9}>
-        
-          <div className="main-content">
-            <h2>Contenuti Principali</h2>
-            <p>Questa è la sezione principale della tua applicazione.</p>
-            {/* Puoi aggiungere altre informazioni o contenuti qui */}
-            <MyProfileComponent/>
-          </div>
-        </Col>
-        <Col xs={4} md={3}>
+        <Col>
           <div className="sidebar">
             <h5>Lista Utenti</h5>
             {loading && !error ? (
