@@ -11,7 +11,7 @@ const ProfileCard = ({user}) => {
     <Container>
         <Row className="justify-content-center mt-4">
             <Card xs={2} md={8} className="position-relative shadow overflow-hidden rounded-4 p-0 profile-card" >
-                <div style={{ height: "120px", background: "#d0dde2" }} />
+                <div style={{ height: "33%", background: "#d0dde2" }} />
 
                 {/* Immagine Profilo */}
                 <div style={{ position: "absolute", top: "60px", left: "20px" }}>
