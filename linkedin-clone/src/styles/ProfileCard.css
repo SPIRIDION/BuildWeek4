@@ -16,4 +16,7 @@
         padding-top: 60px;
     }
     
+    .profile-card {
+        height: 25rem;
+    }
 }

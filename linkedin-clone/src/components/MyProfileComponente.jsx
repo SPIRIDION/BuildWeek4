@@ -1,0 +1,53 @@
+import React, { useState, useEffect } from 'react';
+import ProfileCard from './ProfileCard';
+import EsperienzeComponent from "./EsperienzeComponent"
+
+
+export default function ProfileDetailComponent() {
+
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchProfileDetails = async () => {
+    setError(null);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_APIURL }/me`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_KEY}`,
+        },
+      });
+    
+
+      if (!response.ok) {
+        setError(`Errore nella richiesta: ${response.statusText} (${response.status})`);
+        return;
+      }
+
+      const data = await response.json();
+      console.log('Dati ricevuti:', data);
+      setProfile(data);
+    } catch (error) {
+      setError(`Si è verificato un errore: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProfileDetails();
+  }, []);
+
+  return (
+    <>
+      {profile && (
+      <>
+        <ProfileCard user={profile} />
+        <EsperienzeComponent userId={profile._id} />
+      </>
+      )}
+
+    </>
+  );
+}
