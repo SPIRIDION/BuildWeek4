@@ -1,8 +1,10 @@
-import React from 'react'
-import { Form, Button, Row, Col } from 'react-bootstrap'
-
+import React, { useState } from 'react'
+import { Form, Button, Row, Col, FloatingLabel } from 'react-bootstrap'
 
 export default function ExpFormComponent() {
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+
   return (
     <Form>
       <Row className="mb-3">
@@ -17,42 +19,42 @@ export default function ExpFormComponent() {
         </Form.Group>
       </Row>
 
-      <Form.Group className="mb-3" controlId="formGridStartDate">
-        <Form.Label>A partire dal</Form.Label>
-        <Form.Control placeholder="Data di inizio" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formGridEndDate">
-        <Form.Label>Fino al </Form.Label>
-        <Form.Control placeholder="Data di fine servizio" />
-      </Form.Group>
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridStartDate">
+          <Form.Label>A partire dal</Form.Label>
+          <Form.Control 
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group as={Col} controlId="formGridEndDate">
+          <Form.Label>Fino al </Form.Label>
+          <Form.Control 
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
+        </Form.Group>
+      </Row>
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridArea">
           <Form.Label>Luogo</Form.Label>
           <Form.Control placeholder='Luogo di lavoro'/>
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>State</Form.Label>
-          <Form.Select defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
-          </Form.Select>
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridZip">
-          <Form.Label>Zip</Form.Label>
-          <Form.Control />
-        </Form.Group>
       </Row>
 
-      <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      <FloatingLabel className='mb-3' controlId="floatingTextarea2" label="Descrizione">
+        <Form.Control
+          as="textarea"
+          placeholder="Leave a comment here"
+          style={{ height: '100px' }}
+        />
+      </FloatingLabel>
 
       <Button variant="primary" type="submit">
-        Submit
+        Aggiungi un'esperienza
       </Button>
     </Form>
   )

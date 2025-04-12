@@ -6,7 +6,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import ProfileDetailComponent from './components/ProfileDetailComponent'
 import HomePageComponent from './components/HomePageComponent'
-import MyProfileComponent from './components/MyProfileComponente'
+import MyProfileComponent from './components/MyProfileComponent'
 
 
 
@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={<ProfileListComponent />} />
           <Route path="/profile/:id" element={<ProfileDetailComponent />} />
           <Route path="/tu" element={<MyProfileComponent />} />
-          <Route path="/home" element={<ProfileListComponent/>} />
+          <Route path="/home" element={<HomePageComponent/>} />
           
         </Routes>
       </Router>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import ProfileCard from "./ProfileCard"
 import EsperienzeComponent from "./EsperienzeComponent"
-import ExpFormComponent from "./ExpFormComponent"
 
 export default function MyEsperienzeComponent() {
   const [profile, setProfile] = useState(null)
@@ -44,7 +43,6 @@ export default function MyEsperienzeComponent() {
       {profile && (
         <>
           <ProfileCard user={profile} />
-          <ExpFormComponent />
           <EsperienzeComponent userId={MY_ID} />
         </>
       )}
