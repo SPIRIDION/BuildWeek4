@@ -2,6 +2,7 @@ import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import MyEsperienzeComponent from "./MyEsperienzeComponent"
 import ProfileListComponent from "./ProfileListComponent"
+import ExpFormComponent from "./ExpFormComponent"
 
 export default function HomePageComponent() {
   return (
@@ -10,6 +11,7 @@ export default function HomePageComponent() {
         {/* Colonna sinistra: il tuo profilo con esperienze */}
         <Col xs={12} md={8}>
           <MyEsperienzeComponent />
+          <ExpFormComponent />
         </Col>
 
         {/* Colonna destra: lista utenti */}
