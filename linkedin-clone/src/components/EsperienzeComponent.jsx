@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Spinner, Alert, Card, Row, Col, Container } from "react-bootstrap"
+import ExpFormComponent from "./ExpFormComponent"
 
 export default function EsperienzeComponent({ userId }) {
   const API = import.meta.env.VITE_APIURL
@@ -52,6 +53,8 @@ export default function EsperienzeComponent({ userId }) {
           {!loading && !error && esperienze.length === 0 && (
             <Alert variant="warning">Nessuna esperienza disponibile.</Alert>
           )}
+
+          <ExpFormComponent />
 
           {esperienze.map((exp) => (
             <Card className="mb-3 shadow-sm" key={exp._id}>

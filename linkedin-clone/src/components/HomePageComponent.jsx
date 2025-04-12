@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import MyEsperienzeComponent from "./MyEsperienzeComponent"
 import ProfileListComponent from "./ProfileListComponent"
 
+
 export default function HomePageComponent() {
   return (
     <Container fluid>

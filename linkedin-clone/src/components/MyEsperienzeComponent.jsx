@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import ProfileCard from "./ProfileCard"
 import EsperienzeComponent from "./EsperienzeComponent"
 
-export default function MyProfileComponent() {
+export default function MyEsperienzeComponent() {
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
