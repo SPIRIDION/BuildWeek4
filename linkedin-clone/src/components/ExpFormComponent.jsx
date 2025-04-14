@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Form, Button, Row, Col, FloatingLabel } from 'react-bootstrap'
 
-export default function ExpFormComponent() {
+export default function ExpFormComponent({ userId, aggiornamentoExp }) {
+
+  const API = import.meta.env.VITE_APIURL
+  const TOKEN = import.meta.env.VITE_KEY
 
   const [newExperience, setNewExperience] = useState({
     role:'',
@@ -11,6 +14,35 @@ export default function ExpFormComponent() {
     description:'',
     area:''
   })
+
+  const addExperience = async () => {
+    try {
+      const response = await fetch(API + `/${userId}/experiences`, {
+        method:'POST', 
+        body: JSON.stringify(newExperience),
+        headers: {
+          Authorization: `bearer ${TOKEN}`,
+          "Content-Type": "application/json"
+        }
+      })
+      if (response.ok) {
+        alert('Esperienza aggiunta!')
+        aggiornamentoExp()
+        setNewExperience({
+          role:'',
+          company:'',
+          startDate:'',
+          endDate:'',
+          description:'',
+          area:''
+        })
+      } else {
+        console.log('Errore durante la fetch call')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <Form className='mb-5'>
@@ -92,7 +124,7 @@ export default function ExpFormComponent() {
         />
       </FloatingLabel>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="button" onClick={addExperience}>
         Aggiungi un'esperienza
       </Button>
     </Form>
