@@ -10,29 +10,29 @@ export default function EsperienzeComponent({ userId }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const fetchEsperienze = async () => {
-      try {
-        const res = await fetch(`${API}/${userId}/experiences`, {
-          headers: {
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        })
+  const fetchEsperienze = async () => {
+    try {
+      const res = await fetch(`${API}/${userId}/experiences`, {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+        },
+      })
 
-        if (!res.ok) {
-          setError("Errore nel caricamento delle esperienze")
-          return
-        }
-
-        const data = await res.json()
-        setEsperienze(data)
-      } catch (error) {
-        setError("Errore: " + error.message)
-      } finally {
-        setLoading(false)
+      if (!res.ok) {
+        setError("Errore nel caricamento delle esperienze")
+        return
       }
-    }
 
+      const data = await res.json()
+      setEsperienze(data)
+    } catch (error) {
+      setError("Errore: " + error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
     fetchEsperienze()
   }, [userId])
 
@@ -54,7 +54,7 @@ export default function EsperienzeComponent({ userId }) {
             <Alert variant="warning">Nessuna esperienza disponibile.</Alert>
           )}
 
-          <ExpFormComponent />
+          <ExpFormComponent userId={userId} aggiornamentoExp={fetchEsperienze}/>
 
           {esperienze.map((exp) => (
             <Card className="mb-3 shadow-sm" key={exp._id}>
